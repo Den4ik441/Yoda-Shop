@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Падающие звезды</title>
+    <title>Ночное небо с Луной</title>
     <style>
         /* Убираем отступы и устанавливаем размеры */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* чтобы звезды не выходили за пределы экрана */
-            background-color: #1b1b3a; /* темный фон */
+            overflow: hidden;
+            background-color: #1b1b3a; /* Темный фон для ночного неба */
             display: flex;
-            justify-content: center; /* Выравнивание по горизонтали */
-            align-items: center; /* Выравнивание по вертикали */
-            color: white; /* Цвет текста */
-            font-size: 48px; /* Размер текста */
-            font-family: Arial, sans-serif; /* Шрифт */
-            position: relative; /* Для правильного позиционирования текста */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 48px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Добавление Луны */
+        .moon {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Moon.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.6); /* мягкое свечение */
         }
 
         /* Стиль для каждой звезды */
@@ -35,21 +49,23 @@
         /* Анимация падения звезд */
         @keyframes fall {
             0% {
-                transform: translateY(-100vh); /* Начальная точка: за верхней границей */
+                transform: translateY(-100vh);
             }
             100% {
-                transform: translateY(100vh); /* Конечная точка: за нижней границей */
+                transform: translateY(100vh);
             }
         }
 
         /* Текст "Привет" по центру */
         .greeting {
-            z-index: 10; /* Чтобы текст был поверх звезд */
+            z-index: 10;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* мягкая тень для текста */
         }
     </style>
 </head>
 <body>
-    <div class="greeting">Привет</div>
+    <div class="moon"></div> <!-- Луна -->
+    <div class="greeting">Привет</div> <!-- Текст приветствия -->
 
     <script>
         // Количество падающих звезд

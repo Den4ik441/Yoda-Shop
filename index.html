@@ -3,22 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт</title>
+    <title>Падающие звезды</title>
     <style>
-        /* Применяем фоновое изображение на всю страницу */
-        body {
-            background-image: url('background.jpg'); /* имя вашего изображения */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        /* Убираем отступы и устанавливаем размеры */
+        body, html {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100%;
+            overflow: hidden; /* чтобы звезды не выходили за пределы экрана */
+            background-color: #1b1b3a; /* темный фон */
+            display: flex;
+            justify-content: center; /* Выравнивание по горизонтали */
+            align-items: center; /* Выравнивание по вертикали */
+            color: white; /* Цвет текста */
+            font-size: 48px; /* Размер текста */
+            font-family: Arial, sans-serif; /* Шрифт */
+            position: relative; /* Для правильного позиционирования текста */
+        }
+
+        /* Стиль для каждой звезды */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        /* Анимация падения звезд */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh); /* Начальная точка: за верхней границей */
+            }
+            100% {
+                transform: translateY(100vh); /* Конечная точка: за нижней границей */
+            }
+        }
+
+        /* Текст "Привет" по центру */
+        .greeting {
+            z-index: 10; /* Чтобы текст был поверх звезд */
         }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать на мой сайт</h1>
-    <p>Это мой персональный сайт с фоновым изображением звездного неба.</p>
+    <div class="greeting">Привет</div>
+
+    <script>
+        // Количество падающих звезд
+        const starCount = 100;
+
+        // Функция для создания и анимации звезд
+        function createStars() {
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                // Случайное положение и скорость для каждой звезды
+                const size = Math.random() * 3 + 1; // Размер от 1px до 3px
+                const positionX = Math.random() * window.innerWidth; // Случайная позиция по оси X
+                const animationDuration = Math.random() * 2 + 2; // Время анимации от 2 до 4 секунд
+
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${positionX}px`;
+                star.style.animationDuration = `${animationDuration}s`;
+
+                // Добавляем звезду на страницу
+                document.body.appendChild(star);
+            }
+        }
+
+        // Запуск функции для создания звезд
+        createStars();
+    </script>
 </body>
 </html>

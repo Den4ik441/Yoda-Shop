@@ -22,17 +22,17 @@
             box-sizing: border-box;
         }
 
-        /* Добавление Луны */
+        /* Добавление Луны с правильным позиционированием */
         .moon {
             position: absolute;
-            top: 10%;
-            right: 10%;
-            width: 150px;
-            height: 150px;
+            top: 5%; /* Позиционирование Луны чуть выше центра */
+            left: 5%; /* Позиционирование слева */
+            width: 250px; /* Увеличим размер Луны */
+            height: 250px;
             background: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Moon.png') no-repeat center center;
             background-size: cover;
             border-radius: 50%;
-            box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.6); /* мягкое свечение */
+            box-shadow: 0px 0px 40px 15px rgba(255, 255, 255, 0.6); /* мягкое свечение */
         }
 
         /* Стиль для каждой звезды */
@@ -59,7 +59,9 @@
         /* Текст "Привет" по центру */
         .greeting {
             z-index: 10;
-            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* мягкая тень для текста */
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8); /* мягкая тень для текста */
+            font-size: 60px; /* Увеличиваем размер текста */
+            text-align: center;
         }
     </style>
 </head>

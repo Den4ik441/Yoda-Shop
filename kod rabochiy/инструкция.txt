@@ -1,0 +1,17 @@
+Для этого бота нужно установить следующие библиотеки:
+
+telebot==4.0.0
+sqlite3==3.36.0
+Чтобы запустить бота, нужно выполнить следующие шаги:
+
+Установите библиотеки:
+pip install telebot==4.0.0 sqlite3==3.36.0
+
+Убедитесь, что у вас есть файл config.py, в котором должен быть прописан токен бота:
+BOT_TOKEN = 'your_bot_token'
+SERVICE_NAME = 'YourService'
+WORK_TIME = '08:00 - 22:00'
+ADMINS_ID = [your_admin_id]
+
+Запустите скрипт:
+python bot.py
